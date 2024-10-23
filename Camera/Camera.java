@@ -1,26 +1,73 @@
+import java.util.Date;
+
 public class Camera {
     private int pixel;
+    private double weight;
+    private String color;
+    private String manufacturerName;
+    private String manufacturerCountry;
+    private Lens lens;
+    private SDCard sdCard;
+    private String resolutionSetting; 
 
-    public Camera(int pixel) {
+    public Camera(int pixel, double weight, String color, String manufacturerName, String manufacturerCountry) {
         this.pixel = pixel;
+        this.weight = weight;
+        this.color = color;
+        this.manufacturerName = manufacturerName;
+        this.manufacturerCountry = manufacturerCountry;
     }
 
-    public int getPixel() {
-        return pixel;
+    public void attachLens(Lens lens) {
+        this.lens = lens;
     }
 
-    public String getPicture() {
-        return "Das Bild wurde mit einer Kamera von " + pixel + " Pixel aufgenommen.";
+    public void insertSDCard(SDCard sdCard) {
+        this.sdCard = sdCard;
     }
 
-    public void printImages(int numberOfImages) {
-        for (int i = 0; i < numberOfImages; i++) {
-            System.out.println("Bild " + (i + 1) + ": " + getPicture());
+    public void setResolutionSetting(String resolutionSetting) {
+        this.resolutionSetting = resolutionSetting;
+    }
+
+    public void takePicture(String fileName) {
+        if (sdCard == null) {
+            System.out.println("Keine SD-Karte eingelegt.");
+            return;
         }
-    }
 
-    public static void main(String[] args) {
-        Camera camera = new Camera(1080);
-        camera.printImages(5);
+        int fileSize = 0;
+        switch (resolutionSetting) {
+            case "klein":
+                fileSize = 2048; 
+                break;
+            case "mittel":
+                fileSize = 4096; 
+                break;
+            case "groß":
+                fileSize = 6144; 
+                break;
+            default:
+                System.out.println("Unbekannte Auflösungseinstellung.");
+                return;
+        }
+
+        File file = new File();
+        file.setName(fileName);
+        file.setSize(fileSize);
+        file.setDate(new Date());
+
+        if (sdCard.getUsedSpace() + fileSize <= sdCard.getCapacity()) {
+            if (sdCard.saveFile(file)) {
+                System.out.println("Bild " + fileName + " wurde gespeichert.");
+            } else {
+                System.out.println("Fehler beim Speichern des Bildes.");
+            }
+        } else if (sdCard.getUsedSpace() < sdCard.getCapacity()) {
+            System.out.println("Warnung: Speicherplatz wird knapp. Bild " + fileName + " wurde gespeichert.");
+            sdCard.saveFile(file);
+        } else {
+            System.out.println("Kein Speicherplatz mehr vorhanden. Bild konnte nicht gespeichert werden.");
+        }
     }
 }
