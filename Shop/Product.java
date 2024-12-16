@@ -1,6 +1,6 @@
-package VSC.SWP_OO.Sam.Shop;
+package VSC.SWP_OO.Shop;
 
 public interface Product {
     public String getName();
-
+    public double getPrice();
 }
