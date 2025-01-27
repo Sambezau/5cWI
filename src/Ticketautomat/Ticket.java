@@ -1,4 +1,4 @@
-package Ticketautomat;
+package VSC.SWP5.src.Ticketautomat;
 
 import java.util.Random;
 

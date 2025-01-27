@@ -1,5 +1,5 @@
 
-package Ticketautomat;
+package VSC.SWP5.src.Ticketautomat;
 
 public class Scanner {
     private Ticket ticket;
