@@ -1,3 +1,4 @@
+package VSC.SWP5.Camera;
 public class Lens {
     private String manufacturer;
     private int length; 

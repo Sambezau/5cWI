@@ -1,3 +1,4 @@
+package VSC.SWP5.Camera;
 import java.util.Date;
 
 public class File {

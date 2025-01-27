@@ -1,4 +1,4 @@
-package VSC.SWP_OO.Shop;
+package VSC.SWP5.Shop;
 
 public class Bike implements Product {
     private String style;

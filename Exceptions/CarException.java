@@ -1,4 +1,4 @@
-package VSC.SWP_OO.Exceptions;
+package VSC.SWP5.Exceptions;
 
 public class CarException extends Exception{
     public CarException(String message){

@@ -1,4 +1,4 @@
-package VSC.SWP_OO.Exceptions;
+package VSC.SWP5.Exceptions;
 
 public class Gui {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package VSC.SWP_OO.Shop;
+package VSC.SWP5.Shop;
 
 import java.util.Scanner;
 import java.util.List;

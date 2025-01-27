@@ -1,4 +1,4 @@
-package VSC.SWP_OO.Generator;
+package VSC.SWP5.Generator;
 
 import java.util.Random;
 

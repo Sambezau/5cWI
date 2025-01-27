@@ -1,5 +1,5 @@
 
-package VSC.SWP_OO.Exceptions;
+package VSC.SWP5.Exceptions;
 
 import java.util.Random;
 
