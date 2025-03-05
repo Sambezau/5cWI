@@ -1,0 +1,17 @@
+// schlechte Typisierung
+
+console.log(0 == false);  // true (weil false zu 0 wird)
+console.log("5" == 5);    // true (weil "5" zu Zahl 5 wird)
+
+console.log(0 === false);  // false (weil 0 eine Zahl ist, false aber ein Boolean)
+console.log("5" === 5);    // false (weil String ≠ Zahl)
+
+// wenn das let undefined ist hört er auf, bei var nicht
+
+console.log(x); // undefined (kein Fehler, aber unerwartet!)
+var x = 10;
+console.log(x); // 10
+
+console.log(y); // ReferenceError! (weil `let` nicht gehostet wird)
+let y = 20;
+console.log(y); // 20
